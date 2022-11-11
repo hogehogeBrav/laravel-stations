@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('practices', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->text('title')->comment('タイトル');
-            $table->timestamps();
+            $table->text('title')->comment('映画タイトル');
+            $table->text('image_url')->comment('画像URL');
+            $table->dateTime('created_at')->comment('登録日時');
+            $table->dateTime('updated_at')->comment('更新日時');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('practices');
+        Schema::dropIfExists('movies');
     }
 };
